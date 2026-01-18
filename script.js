@@ -65,7 +65,8 @@ function drawHeart(scale) {
 function animateHeart() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  const pulse = 14 + Math.sin(t) * 0.8;
+ const pulse = 18 + Math.sin(t) * 1.1;
+
 
   drawHeart(pulse);
   ctx.strokeStyle = "rgba(255,92,138,0.95)";

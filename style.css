@@ -1,3 +1,4 @@
+/* ===== RESET / BASE ===== */
 body {
   margin: 0;
   background: #0d0d0d;
@@ -5,12 +6,14 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+/* ===== CANVAS DO CORAÇÃO ===== */
 canvas {
   position: fixed;
   inset: 0;
   z-index: 1;
 }
 
+/* ===== CAMADA DE UI ===== */
 #ui {
   position: fixed;
   inset: 0;
@@ -18,21 +21,23 @@ canvas {
   z-index: 2;
 }
 
+/* ===== TEXTO CENTRAL ===== */
 .center-text {
   position: absolute;
-  top: 50%;
+  top: 47%;               /* ajuste fino pro centro do coração */
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 260px;
   padding: 10px 14px;
 
-  color: #fff;
+  color: #ffffff;
   text-align: center;
 
   opacity: 0;
   animation: fadeIn 3s ease forwards;
   animation-delay: 4s;
 }
+
 .center-text p {
   margin: 6px 0;
   line-height: 1.5;
@@ -53,56 +58,19 @@ canvas {
   opacity: 0.7;
 }
 
-}
-
-.center-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  text-align: center;
-  font-size: 1.1rem;
-  opacity: 0;
-  animation: fadeIn 3s ease forwards;
-  animation-delay: 4s;
-}
-
-.center-text span {
-  display: block;
-  margin-top: 10px;
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-.center-text {
-  max-width: 280px;
-  padding: 10px 14px;
-}
-
-.center-text p {
-  margin: 6px 0;
-  line-height: 1.5;
-  font-size: 1.05rem;
-}
-
-.center-text span {
-  display: block;
-  margin-top: 12px;
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-
+/* ===== ANIMAÇÃO TEXTO ===== */
 @keyframes fadeIn {
   to {
     opacity: 1;
   }
 }
 
+/* ===== PALAVRAS FLUTUANTES ===== */
 .love-word {
   position: absolute;
   color: #ff5c8a;
   font-size: 1.2rem;
-  text-shadow: 0 0 12px rgba(255,92,138,0.9);
+  text-shadow: 0 0 12px rgba(255, 92, 138, 0.9);
   white-space: nowrap;
   animation: floatUp linear infinite;
   z-index: 0;
@@ -116,13 +84,13 @@ canvas {
   to {
     transform: translateY(-20vh) rotate(20deg);
     opacity: 1;
+  }
 }
-  @media (max-width: 480px) {
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
   .center-text {
     max-width: 220px;
-  }
-
-  .center-text p {
-    font-size: 1rem;
+    top: 46%;
   }
 }

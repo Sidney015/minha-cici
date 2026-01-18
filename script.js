@@ -22,5 +22,3 @@ function createWord() {
 }
 
 setInterval(createWord, 350);
-
-}

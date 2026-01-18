@@ -1,11 +1,34 @@
-/* ===== RESET / BASE ===== */
 body {
   margin: 0;
   background: #0d0d0d;
   overflow: hidden;
   font-family: 'Poppins', sans-serif;
 }
-/* ===== CAMADA DE UI ===== */
+
+/* palavras flutuando */
+.love-word {
+  position: absolute;
+  bottom: -40px;
+  color: #ff5c8a;
+  font-size: 1.2rem;
+  text-shadow: 0 0 12px rgba(255,92,138,0.9);
+  white-space: nowrap;
+  animation: floatUp linear infinite;
+  z-index: 0;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh) rotate(-20deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-120vh) rotate(20deg);
+    opacity: 1;
+  }
+}
+
+/* texto central */
 #ui {
   position: fixed;
   inset: 0;
@@ -13,21 +36,18 @@ body {
   z-index: 2;
 }
 
-/* ===== TEXTO CENTRAL ===== */
 .center-text {
   position: absolute;
-  top: 47%;               /* ajuste fino pro centro do coração */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 260px;
   padding: 10px 14px;
-
-  color: #ffffff;
+  color: #fff;
   text-align: center;
-
   opacity: 0;
   animation: fadeIn 3s ease forwards;
-  animation-delay: 4s;
+  animation-delay: 1.5s;
 }
 
 .center-text p {
@@ -40,7 +60,6 @@ body {
   margin-top: 14px;
   font-size: 1.25rem;
   font-weight: 600;
-  letter-spacing: 1px;
 }
 
 .center-text span {
@@ -50,39 +69,14 @@ body {
   opacity: 0.7;
 }
 
-/* ===== ANIMAÇÃO TEXTO ===== */
 @keyframes fadeIn {
   to {
     opacity: 1;
   }
 }
 
-/* ===== PALAVRAS FLUTUANTES ===== */
-.love-word {
-  position: absolute;
-  color: #ff5c8a;
-  font-size: 1.2rem;
-  text-shadow: 0 0 12px rgba(255, 92, 138, 0.9);
-  white-space: nowrap;
-  animation: floatUp linear infinite;
-  z-index: 0;
-}
-
-@keyframes floatUp {
-  from {
-    transform: translateY(100vh) rotate(-20deg);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(-20vh) rotate(20deg);
-    opacity: 1;
-  }
-}
-
-/* ===== MOBILE ===== */
 @media (max-width: 480px) {
   .center-text {
     max-width: 220px;
-    top: 46%;
   }
 }

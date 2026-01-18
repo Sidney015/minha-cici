@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  background: #0d0d0d;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+#ui {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  font-size: 1.1rem;
+  opacity: 0;
+  animation: fadeIn 4s ease forwards;
+  animation-delay: 6s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.love-word {
+  position: absolute;
+  color: #ff5c8a;
+  font-size: 1.3rem;
+  text-shadow: 0 0 12px rgba(255,92,138,0.9);
+  white-space: nowrap;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh) rotate(-20deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-20vh) rotate(20deg);
+    opacity: 1;
+  }
+}

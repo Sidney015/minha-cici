@@ -23,7 +23,7 @@ function createWord() {
 
 setInterval(createWord, 350);
 
-// ===== CORAÇÃO NO CENTRO =====
+// ===== CORAÇÃO NO CENTRO (FIXADO) =====
 const canvas = document.getElementById("heartCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -38,20 +38,27 @@ let t = 0;
 
 function drawHeart(scale) {
   ctx.beginPath();
-  for (let i = 0; i <= Math.PI * 2; i += 0.01) {
-    const x =
-      16 * Math.pow(Math.sin(i), 3);
+
+  let first = true;
+  for (let i = 0; i <= Math.PI * 2; i += 0.02) {
+    const x = 16 * Math.pow(Math.sin(i), 3);
     const y =
       -(13 * Math.cos(i) -
         5 * Math.cos(2 * i) -
         2 * Math.cos(3 * i) -
         Math.cos(4 * i));
 
-    ctx.lineTo(
-      canvas.width / 2 + x * scale,
-      canvas.height / 2 + y * scale
-    );
+    const px = canvas.width / 2 + x * scale;
+    const py = canvas.height / 2 + y * scale;
+
+    if (first) {
+      ctx.moveTo(px, py);   // 🔥 ISSO resolve tudo
+      first = false;
+    } else {
+      ctx.lineTo(px, py);
+    }
   }
+
   ctx.closePath();
 }
 
@@ -61,10 +68,10 @@ function animateHeart() {
   const pulse = 14 + Math.sin(t) * 0.8;
 
   drawHeart(pulse);
-  ctx.strokeStyle = "rgba(255,92,138,0.9)";
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = "rgba(255,92,138,0.95)";
+  ctx.lineWidth = 2.2;
   ctx.shadowColor = "#ff5c8a";
-  ctx.shadowBlur = 20;
+  ctx.shadowBlur = 25;
   ctx.stroke();
 
   t += 0.05;
@@ -72,3 +79,4 @@ function animateHeart() {
 }
 
 animateHeart();
+

@@ -1,24 +1,27 @@
-// palavras flutuando no fundo
-const words = [
-  "MINHA Cici",
-  "MEU Amor",
-  "Eu te amo ate o infinito",
-  "Eu te Amo",
-  "me desculpa",
-  "Eu amo você"
-];
+document.addEventListener("DOMContentLoaded", () => {
+  const words = [
+    "MINHA Cici",
+    "MEU Amor",
+    "Eu te amo até o infinito",
+    "Eu te Amo",
+    "me desculpa",
+    "Eu amo você"
+  ];
 
-function createWord() {
-  const span = document.createElement("span");
-  span.className = "love-word";
-  span.innerText = words[Math.floor(Math.random() * words.length)];
+  const ui = document.getElementById("ui");
 
-  span.style.left = Math.random() * 100 + "vw";
-  span.style.animationDuration = 6 + Math.random() * 6 + "s";
+  function createWord() {
+    const span = document.createElement("span");
+    span.className = "love-word";
+    span.innerText = words[Math.floor(Math.random() * words.length)];
 
-  document.body.appendChild(span);
+    span.style.left = Math.random() * 100 + "vw";
+    span.style.animationDuration = 6 + Math.random() * 6 + "s";
 
-  setTimeout(() => span.remove(), 12000);
-}
+    ui.appendChild(span);
 
-setInterval(createWord, 350);
+    setTimeout(() => span.remove(), 12000);
+  }
+
+  setInterval(createWord, 350);
+});

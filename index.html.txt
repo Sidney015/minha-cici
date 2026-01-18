@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Pra você ❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(270deg, #ff9a9e, #fad0c4);
+    background-size: 400% 400%;
+    animation: bg 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+  }
+
+  @keyframes bg {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  .card {
+    background: rgba(255,255,255,0.95);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    z-index: 10;
+  }
+
+  h1 {
+    color: #ff4f7b;
+  }
+
+  p {
+    font-size: 18px;
+    color: #333;
+    min-height: 100px;
+  }
+
+  button {
+    margin-top: 25px;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    background: #ff4f7b;
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #ff2f65;
+  }
+
+  .heart {
+    position: absolute;
+    color: rgba(255, 0, 100, 0.6);
+    font-size: 20px;
+    animation: float 6s linear infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+    10% {opacity: 1;}
+    100% {
+      transform: translateY(-10vh);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Ei… 💗</h1>
+  <p id="texto"></p>
+  <button onclick="final()">Aceitar pedido de desculpa?</button>
+</div>
+
+<script>
+const mensagem = "Eu sei que eu errei.\n\nNão foi por falta de amor, foi falha minha.\n\nVocê é importante demais pra eu perder por orgulho.\n\nEu tô aqui, de verdade.";
+let i = 0;
+
+function digitar() {
+  if (i < mensagem.length) {
+    document.getElementById("texto").innerHTML += mensagem.charAt(i).replace("\n","<br>");
+    i++;
+    setTimeout(digitar, 50);
+  }
+}
+
+digitar();
+
+function final() {
+  alert("Obrigado por ler até aqui.\nEu te amo 🤍");
+  for (let i = 0; i < 40; i++) {
+    criarCoracao();
+  }
+}
+
+function criarCoracao() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 25) + "px";
+  heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 8000);
+}
+</script>
+
+</body>
+</html>
+

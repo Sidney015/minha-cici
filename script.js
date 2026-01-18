@@ -41,12 +41,12 @@ function drawHeart(scale) {
 
   let first = true;
   for (let i = 0; i <= Math.PI * 2; i += 0.02) {
-    const x = 16 * Math.pow(Math.sin(i), 3);
-    const y =
-      -(13 * Math.cos(i) -
-        5 * Math.cos(2 * i) -
-        2 * Math.cos(3 * i) -
-        Math.cos(4 * i));
+    const x = 22 * Math.pow(Math.sin(i), 3);
+const y =
+  -(18 * Math.cos(i) -
+    7 * Math.cos(2 * i) -
+    3 * Math.cos(3 * i) -
+    Math.cos(4 * i));
 
     const px = canvas.width / 2 + x * scale;
     const py = canvas.height / 2 + y * scale;
